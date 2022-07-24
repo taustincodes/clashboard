@@ -1,0 +1,7 @@
+index:
+   path: /home
+   controller: App\Controller\HomeController::index
+
+player:
+  path: /player
+  controller: App\Controller\PlayerController::index
