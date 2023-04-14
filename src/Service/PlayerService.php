@@ -101,7 +101,7 @@ class PlayerService
             "3" => 0
         ];
         foreach ($battleLog as $battle) {
-            if ($battle['type'] == 'PvP') {
+            if ($battle['type'] == 'pathOfLegend') {
                 if ($battle['team'][0]['crowns'] > $battle['opponent'][0]['crowns']) {
                     $crownLog[$battle['team'][0]['crowns']]++;
                 }
@@ -115,7 +115,7 @@ class PlayerService
     {
         $trophyLog = [];
         foreach ($battleLog as $battle) {
-            if ($battle['type'] == 'PvP') {
+            if ($battle['type'] == 'pathOfLegend') {
                 array_push($trophyLog, ($battle['team'][0]['startingTrophies'] + $battle['team'][0]['trophyChange']));
             }
         }

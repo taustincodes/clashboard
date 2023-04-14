@@ -11,7 +11,7 @@ class ClashAPIService
         $this->token = $token;
     }
 
-    public function getClashRoyaleData(string $endpoint): array
+    public function getClashRoyaleData(string $endpoint): ?array
     {    
         $baseUrl = "https://api.clashroyale.com/v1";
         $header = array();

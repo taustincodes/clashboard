@@ -29,7 +29,7 @@ class ClanController extends AbstractController
     {
         $clanTag = "%23" . $slug;
 
-        $clan = $this->clanService->getClan($clanTag);
+        $clan = $this->clanService->getClanByTag($clanTag);
 
         var_dump($clan);
         die();

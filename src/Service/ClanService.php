@@ -11,11 +11,30 @@ class ClanService
         $this->clashAPIService = $clashAPIService;
     }
 
-    public function getClan(string $clanTag)
+    public function getClanMembers(string $clanTag, int $limit)
     {
-        $endpoint = "/clans/$clanTag/members";
+        $clanTag = $this->convertTag($clanTag);
+        $endpoint = "/clans/$clanTag/members?limit=$limit";
         $clanMembers = $this->clashAPIService->getClashRoyaleData($endpoint);
 
-        return $clanMembers;
+        return $clanMembers['items'];
+    }
+
+    public function getAnyFullClan()
+    {
+        $endpoint = "/clans?minMembers=50&limit=1";
+        $clan = $this->clashAPIService->getClashRoyaleData($endpoint);
+        
+        return $clan;
+    }
+
+    private function convertTag(string $tag): string
+    {
+        if ($tag[0] === '#') {
+            $tag = ltrim($tag, $tag[0]);
+            $tag = "%23" . $tag;
+        }
+        
+        return $tag;
     }
 }
