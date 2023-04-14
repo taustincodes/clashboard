@@ -4,6 +4,7 @@ namespace App\Service;
 
 use App\Service\ClashAPIService;
 use App\Service\ClanService;
+use DateTime;
 
 class LocationService
 {
@@ -31,10 +32,11 @@ class LocationService
         return $clans;
     }
 
-    public function getLocationTopClanMembers(string $locationId) {
+    public function getLocationTopClanMembers(string $locationId)
+    {
         $clans = $this->getLocationClanRankings($locationId);
         $topClanTag = $clans['items'][0]['tag'];
-
-        return $this->clanService->getClanMembers($topClanTag, 10);
+ 
+        return $this->clanService->getClanMembers($topClanTag, 25);
     }
 }

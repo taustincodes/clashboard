@@ -8,6 +8,13 @@
 {% endblock %}
 {% block body %}
 <div class="container-fluid" style="">
+{# JS data #}
+<div 
+    class="chart-data" 
+    data-crown-log="{{ crownLog|serialize(format = 'json') }}"
+    data-trophy-progression="{{ graph|serialize(format = 'json') }}"
+>
+</div>
 		<div class="main-body">
 			<div class="row" >
 				<div class="col-lg-4 col-12">
@@ -142,133 +149,7 @@
 
     <script>
 
-    $(function () {
-  $('[data-toggle="button-tooltip"]').tooltip()
-})
-
-    {# pie chart #}
     
-
-    const data = {
-  labels: [
-    '3 Crowns',
-    '2 Crowns',
-    '1 Crown'
-  ],
-  datasets: [{
-    data: [{{ crownLog }}],
-    backgroundColor: [
-      'rgb(2, 117, 216)',
-      'rgb(0,0,139)',
-      'rgba(2, 117, 216, 0.2)'
-    ],
-    hoverOffset: 4
-  }]
-};
-const config = {
-        type: 'doughnut',
-        data: data,
-        options: {
-                animation:{
-        animateRotate: true,
-        render: false,
-        duration: 2000,
-    },
-            plugins: {
-            legend: {
-                display: true,
-                position: 'bottom',
-                labels: {
-                    boxWidth:10
-                }
-            },
-        }
-    },
-        responsive:true,
-        maintainAspectRatio: false,
-    };
-
-    const myChart = new Chart(
-        document.getElementById('myChart'),
-        config
-    );
-
-
-    {# line chart #}
-
-
-
-
-
-    var xValues = [{{ graph.x }}];
-    var yValues = [{{ graph.y }}];
-
-    const ctx = document.getElementById('myChart2').getContext('2d');
-
-      const data2 = {
-        labels: xValues,
-        datasets: [{
-            label: 'Trophies',
-            data: yValues,
-               backgroundColor: [
-                'rgba(2, 117, 216, 0.2)'
-            ],
-            borderColor: [
-                'rgb(2, 117, 216)'
-            ],
-            fill: true,
-            
-  }]
-};
-
-const config2 = {
-        type: 'line',
-        data: data2,
-        options: {
-            scales: {
-      x: {
-        display: true,
-        title: {
-          display: true,
-          text: 'Battle',
-          color: 'rgb(0,0,139)',
-        },
-        grid: {
-          display: false,
-        }
-      },
-       y: {
-        display: true,
-        title: {
-          display: true,
-          text: 'Trophies',
-          color: 'rgb(0,0,139)',
-        },
-        grid: {
-          display: false,
-        }
-      }
-            },
-                
-            plugins: {
-                
-            legend: {
-                display: false,
-               
-            }
-        }
-    },
-        responsive:true,
-        maintainAspectRatio: false,
-    };
-
-    const myChart2 = new Chart(
-        ctx,
-        config2
-    );
-  
-
-
 
 
     </script>

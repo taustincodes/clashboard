@@ -19,7 +19,7 @@ class PlayerService
     {
         $endpoint = "/players/$playerTag";
         $player = $this->clashAPIService->getClashRoyaleData($endpoint);
-        if (array_key_exists('reason', $player)) {
+        if ($player && array_key_exists('reason', $player)) {
             $player = null;
         }
         return $player;
@@ -108,6 +108,7 @@ class PlayerService
             }
         }
         $crownLog = implode(', ', array_values($crownLog));
+
         return $crownLog;
     }
 

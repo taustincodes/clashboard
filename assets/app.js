@@ -7,12 +7,13 @@
 
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
-
+import './styles/app.scss';
+import $ from 'jquery';
 // start the Stimulus application
 import './bootstrap';
+import { Tooltip, Toast, Popover } from 'bootstrap';
 
-$(document).ready(function() {
-    $('[data-toggle="popover"]').popover();
-});
 
-console.log('Hello')
+import './components/crowns-pie-chart';
+import './components/trophies-line-chart';
+ 

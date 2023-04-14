@@ -6,44 +6,52 @@
 	<div class="container">
 		<div class="main-body">
 			<div class="row">
-				<div class="col-md-4 col-12">
-				<ul>
-					{% for player in topPlayers %}
-        				<li>{{ player.name }}</li>
-    				{% endfor %}
-				</ul>
-  <a href="#" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover">Toggle popover</a>
-				</div>
+				<div class="col-md-4 col-12"></div>
 				<div class="col-md-4 col-12 justify-content-center d-block m-auto">
 					<div class="card">
 						<div class="card-title">
 							<div style="display:block; text-align:center;">
-								<img src=" {{ asset('images/clash_royale_logo.png') }}" alt="Clash Royale logo" style="width:80%; padding-top:10vh; padding-bottom:10vh;" class="center">
+								<img src=" {{ asset('images/clash_royale_logo.png') }}" alt="Clash Royale logo" style="width:80%; padding-top:10vh; padding-bottom:10vh;" class="center"/>
 							</div>
 						</div>
-						<form class="form-inline justify-content-center pb-5 pt-5" action="player" method="get">
+						<form class="form-inline justify-content-center pt-5" action="player" method="get">
 							<div class="form-group mx-sm-3 mb-2">
-								<label class="sr-only" for="inlineFormInputGroup">Player Id</label>
+								<label class="sr-only" for="playerIdTextInput">Enter your player Id</label>
 								<div class="input-group mb-2">
 									<div class="input-group-prepend">
 										<div class="input-group-text">#</div>
 									</div>
-									<input type="text" class="form-control" id="inlineFormInputGroup" name="playerId" placeholder="Player Id">
+									<input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Player Id" name="playerId"/>
 								</div>
 								<button type="submit" class="btn btn-primary ml-1 mb-2">Go</button>
 							</div>
 						</form>
+						<p class="text-center my-2 py-1">or select another existing player</p>
+						<p>
+							<form class="form-inline justify-content-center pb-5" action="player" method="get">
+								<div class="form-group mx-sm-3 mb-2">
+									<label class="sr-only" for="playerIdTextInput">Enter your player Id</label>
+									<div class="input-group mb-2">
+										<div class="input-group-prepend">
+											<div class="input-group-text">#</div>
+										</div>
+										<select type="select" class="form-control" id="inlineFormInputGroup" placeholder="Player Id" name="playerId">
+											<option selected>Open this select menu</option>
+											{% for player in topPlayers %}
+												<option>{{ player.tag|trim('#') }}</option>
+											{% endfor %}
+										</select>
+									</div>
+									<button type="submit" class="btn btn-primary ml-1 mb-2">Go</button>
+								</div>
+							</form>
+						</p>
 					</div>
 				</div>
 				<div class="col-md-4 col-2">
-					<img src=" {{ asset('images/dart-goblin.png') }}" alt="Dart Goblin" style="position:fixed; bottom:0; right:5vw; width:20vw">
+					<img src=" {{ asset('images/dart-goblin.png') }}" alt="Dart Goblin" style="position:fixed; bottom:0; right:5vw; width:20vw"/>
 				</div>
 			</div>
 		</div>
 	</div>
-	<script>
-$(document).ready(function(){
-  $('[data-toggle="popover"]').popover();   
-});
-</script>
 {% endblock %}
