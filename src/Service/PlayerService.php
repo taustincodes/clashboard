@@ -25,7 +25,7 @@ class PlayerService
         return $player;
     }
 
-    public function getPlayerProgress($player): array
+    public function getPlayerProgress($player): ?array
     {
         $cards = $player['cards'];
         $totalCards = 106;
@@ -47,7 +47,7 @@ class PlayerService
         return $accountProgress;
     }
 
-    public function getUpcomingChests(string $playerTag): array
+    public function getUpcomingChests(string $playerTag): ?array
     {
         $endpoint = "/players/$playerTag/upcomingchests";
         $chests = $this->clashAPIService->getClashRoyaleData($endpoint);
@@ -56,7 +56,7 @@ class PlayerService
 
     }
 
-    public function getBattleLog(string $playerTag): array
+    public function getBattleLog(string $playerTag): ?array
     {
         $endpoint = "/players/$playerTag/battlelog";
         $battleLog = $this->clashAPIService->getClashRoyaleData($endpoint);
@@ -64,7 +64,7 @@ class PlayerService
         return $battleLog;
     }
 
-    public function getMostLostCards(string $playerTag): array
+    public function getMostLostCards(string $playerTag): ?array
     {
         $battles = $this->getBattleLog($playerTag);
         $cardLog = [];
@@ -93,7 +93,7 @@ class PlayerService
         return $top3;
     }
 
-    public function generateCrownLog($battleLog): string
+    public function generateCrownLog($battleLog): ?string
     {
         $crownLog = [
             "1" => 0,
@@ -112,7 +112,7 @@ class PlayerService
         return $crownLog;
     }
 
-    public function generateTrophyProgressionGraph($battleLog): array
+    public function generateTrophyProgressionGraph($battleLog): ?array
     {
         $trophyLog = [];
         foreach ($battleLog as $battle) {

@@ -37,7 +37,7 @@ class PlayerController extends AbstractController
         $crownLog = $this->playerService->generateCrownLog($battleLog);
         $mostLostCards = $this->playerService->getMostLostCards($playerId);
         
-        return $this->render('player2.html.twig', [
+        return $this->render('player.html.twig', [
             "page" => "Player profile",
             'player' => $player,
             'mostLostCards' => $mostLostCards,

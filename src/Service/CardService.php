@@ -13,7 +13,7 @@ class CardService
         $this->clashAPIService = $clashAPIService;
     }
 
-    public function getCards(): array
+    public function getCards(): ?array
     {
         $endpoint = "/cards";
         $cards = $this->clashAPIService->getClashRoyaleData($endpoint);
@@ -21,7 +21,7 @@ class CardService
         return $cards;
     }
 
-    public function getCardByName($name): array
+    public function getCardByName($name): ?array
     {
         $cards = $this->getCards();
         $cards = $cards['items'];

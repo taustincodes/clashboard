@@ -1,6 +1,6 @@
 import Chart from "chart.js";
-var chartData = document.querySelector(".chart-data");
 
+var chartData = document.querySelector(".chart-data");
 var crownLog = JSON.parse(chartData.dataset.crownLog);
 var crownLog = crownLog.split(",").map(Number);
 
@@ -40,5 +40,6 @@ const config = {
   responsive: true,
   maintainAspectRatio: false,
 };
+
 
 const crownsPieChart = new Chart(document.getElementById("myChart"), config);

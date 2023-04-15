@@ -1,36 +1,41 @@
 <!DOCTYPE html>
 <html>
-	<head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QB9QPKHXW4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QB9QPKHXW4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+      
+      gtag('config', 'G-QB9QPKHXW4')
+      gtag('config', 'UA-213826249-1')
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A data analytics dashboard for all of your Clash Royale data!" />
+    <meta name="keywords" content="Clash Royale Analytics, Clash Royale Data, Clash Royale Account Analytics, Clash Royale" />
 
-  gtag('config', 'G-QB9QPKHXW4');
-  gtag('config', 'UA-213826249-1');
-</script>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="A data analytics dashboard for all of your Clash Royale data!">
-		<meta name="keywords" content="Clash Royale Analytics, Clash Royale Data, Clash Royale Account Analytics, Clash Royale">
+    <title>
+      {% block title %}
+        Clash Royale Analytics
+      {% endblock %}
+    </title>
+    {% block javascripts %}
+      {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+    {% block stylesheets %}
+      {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+  </head>
+  <body>
+    {% block header %}
 
-		<title>
-			{% block title %}Clash Royale Analytics{% endblock %}
-		</title>
-				{% block javascripts %}
-			{{ encore_entry_script_tags('app') }}
+    {% endblock %}
+    {% block body %}
 
-		{% endblock %}
-		{% block stylesheets %}
-			{{ encore_entry_link_tags('app') }}
-
-		{% endblock %}
-
-	</head>
-	<body>
-		{% block header %}{% endblock %}
-		{% block body %}{% endblock %}
-	</body>
+    {% endblock %}
+  </body>
 </html>

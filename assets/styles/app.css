@@ -1,45 +1,45 @@
 body {
-    background: #f5f5f5;
+  background: #f5f5f5;
 }
 
 .card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 0 solid transparent;
-    border-radius: 0.25rem;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 2px 6px 0 darkgrey;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 0 solid transparent;
+  border-radius: 0.25rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 6px 0 darkgrey;
 }
 
 .card-title {
-    background: #020B4A;
-    color: white;
-    border-radius: 0.25rem 0.25rem 0 0;
-    padding: 7.5px;
+  background: #020b4a;
+  color: white;
+  border-radius: 0.25rem 0.25rem 0 0;
+  padding: 7.5px;
 }
 
 .home-main {
-    width: 40%;
+  width: 40%;
 }
 
 .desktop-container {
-    display: none;
+  display: none;
 }
 
 .mobile-container {
-    display: block;
+  display: block;
 }
 
-@media (min-width:1200px) {
-    .desktop-container {
-        display: block;
-    }
-    .mobile-container {
-        display: none;
-    }
+@media (min-width: 1200px) {
+  .desktop-container {
+    display: block;
+  }
+  .mobile-container {
+    display: none;
+  }
 }

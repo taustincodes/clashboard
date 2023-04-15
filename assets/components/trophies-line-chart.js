@@ -1,6 +1,6 @@
 import Chart from "chart.js";
-var chartData = document.querySelector(".chart-data");
 
+var chartData = document.querySelector(".chart-data");
 var graphData = JSON.parse(chartData.dataset.trophyProgression);
 var graphData = {
   x: graphData.x.split(",").map(Number),
